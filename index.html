@@ -1,0 +1,1243 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#FAFAF7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0F0F0E" media="(prefers-color-scheme: dark)">
+<meta name="description" content="Deepak Pagaro — backend engineer building AI-augmented platforms at consumer scale. Currently at Oracle.">
+<meta property="og:title" content="Deepak Pagaro">
+<meta property="og:description" content="Backend engineer. Platform builder. Calm systems at chaotic scale.">
+<meta property="og:type" content="profile">
+<title>Deepak Pagaro — Senior Backend Software Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,0..100;1,9..144,300..900,0..100&family=Inter:wght@300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --paper: #FAFAF7;
+  --paper-2: #F4F2EA;
+  --ink: #1A1A18;
+  --ink-2: #3A3A36;
+  --ink-muted: #6B6862;
+  --hairline: #DEDBD0;
+  --accent: #4A5D3E;
+  --accent-2: #5D7350;
+  --accent-soft: #E8EDE2;
+  --warn: #6B2B27;
+
+  --serif: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --mono: 'JetBrains Mono', 'SF Mono', Menlo, monospace;
+
+  --measure: 38rem;
+  --measure-wide: 64rem;
+  --gutter: clamp(1.25rem, 5vw, 4rem);
+
+  --t-fast: 180ms cubic-bezier(.2,.8,.2,1);
+  --t-slow: 600ms cubic-bezier(.2,.8,.2,1);
+}
+
+[data-theme="dark"] {
+  --paper: #0E0E0D;
+  --paper-2: #16161A;
+  --ink: #ECE9E0;
+  --ink-2: #C8C4B8;
+  --ink-muted: #8A8678;
+  --hairline: #2A2A26;
+  --accent: #9BB58A;
+  --accent-2: #B4CCA3;
+  --accent-soft: #1F2A1A;
+  --warn: #C77A75;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: clamp(1rem, 0.95rem + 0.2vw, 1.125rem);
+  line-height: 1.6;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  transition: background var(--t-slow), color var(--t-slow);
+  background-image:
+    radial-gradient(circle at 20% 0%, color-mix(in srgb, var(--accent) 4%, transparent), transparent 40%),
+    radial-gradient(circle at 100% 100%, color-mix(in srgb, var(--accent) 3%, transparent), transparent 50%);
+  min-height: 100vh;
+}
+
+::selection { background: var(--accent); color: var(--paper); }
+
+a { color: inherit; text-decoration: none; border-bottom: 1px solid color-mix(in srgb, var(--ink) 20%, transparent); transition: border-color var(--t-fast), color var(--t-fast); }
+a:hover { border-bottom-color: var(--accent); color: var(--accent); }
+
+.skip { position: absolute; top: -100px; left: 1rem; padding: .5rem 1rem; background: var(--ink); color: var(--paper); border: 0; z-index: 100; }
+.skip:focus { top: 1rem; }
+
+/* TOP NAV */
+.topnav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1rem var(--gutter);
+  font-family: var(--mono); font-size: .75rem; letter-spacing: .04em;
+  backdrop-filter: blur(12px) saturate(140%);
+  background: color-mix(in srgb, var(--paper) 75%, transparent);
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--t-fast), background var(--t-fast);
+}
+.topnav.scrolled { border-bottom-color: var(--hairline); }
+.initials { font-family: var(--serif); font-size: 1.1rem; font-weight: 500; font-style: italic; border: 0; }
+.status { display: inline-flex; align-items: center; gap: .5rem; color: var(--ink-muted); text-transform: uppercase; }
+.pulse { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); position: relative; box-shadow: 0 0 0 0 var(--accent); animation: pulse 2.4s ease-out infinite; }
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent) 60%, transparent); }
+  70% { box-shadow: 0 0 0 8px transparent; }
+  100% { box-shadow: 0 0 0 0 transparent; }
+}
+.theme-toggle { background: transparent; border: 1px solid var(--hairline); color: var(--ink-muted); width: 28px; height: 28px; border-radius: 50%; cursor: pointer; display: grid; place-items: center; font-size: .85rem; transition: all var(--t-fast); }
+.theme-toggle:hover { color: var(--ink); border-color: var(--ink-muted); transform: rotate(180deg); }
+
+main { display: block; }
+
+section, header.masthead, footer.colophon {
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
+}
+
+/* MASTHEAD */
+.masthead {
+  position: relative;
+  min-height: 92vh;
+  display: flex; flex-direction: column; justify-content: center;
+  padding-top: 8rem; padding-bottom: 4rem;
+  overflow: hidden;
+}
+.masthead-canvas {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  z-index: 0; opacity: .55; pointer-events: none;
+}
+[data-theme="dark"] .masthead-canvas { opacity: .35; }
+.masthead-inner { position: relative; z-index: 1; max-width: var(--measure-wide); width: 100%; margin: 0 auto; }
+
+.eyebrow {
+  font-family: var(--mono);
+  font-size: .72rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 1.5rem;
+  display: inline-flex; align-items: center; gap: .75rem;
+  opacity: 0; transform: translateY(8px);
+  animation: rise .9s cubic-bezier(.2,.8,.2,1) forwards;
+}
+.eyebrow::before { content: ""; width: 28px; height: 1px; background: currentColor; }
+
+.name {
+  font-family: var(--serif);
+  font-variation-settings: "opsz" 144, "SOFT" 0, "wght" 380;
+  font-size: clamp(3.4rem, 11vw, 9rem);
+  line-height: .92;
+  letter-spacing: -0.025em;
+  margin: 0 0 1.5rem;
+  font-weight: 380;
+  opacity: 0; transform: translateY(20px);
+  animation: rise 1.1s cubic-bezier(.2,.8,.2,1) 80ms forwards;
+}
+.name em {
+  font-style: italic;
+  font-variation-settings: "opsz" 144, "SOFT" 100, "wght" 320;
+  color: var(--accent);
+}
+
+.tagline {
+  font-family: var(--serif);
+  font-variation-settings: "opsz" 36, "wght" 400;
+  font-size: clamp(1.15rem, 1rem + 0.8vw, 1.65rem);
+  font-style: italic;
+  line-height: 1.4;
+  margin: 0 0 2.5rem;
+  color: var(--ink-2);
+  max-width: 38rem;
+  opacity: 0; transform: translateY(12px);
+  animation: rise 1.1s cubic-bezier(.2,.8,.2,1) 220ms forwards;
+}
+.tagline .pipe { color: var(--ink-muted); margin: 0 .35em; font-style: normal; }
+
+.contacts {
+  list-style: none; margin: 0; padding: 0;
+  display: flex; flex-wrap: wrap; gap: 1.5rem 2rem;
+  font-family: var(--mono); font-size: .8rem;
+  text-transform: uppercase; letter-spacing: .1em;
+  opacity: 0; transform: translateY(12px);
+  animation: rise 1.1s cubic-bezier(.2,.8,.2,1) 360ms forwards;
+}
+.contacts a { border-bottom: 1px solid var(--hairline); padding-bottom: 2px; }
+.contacts a:hover { border-bottom-color: var(--accent); }
+.contacts .loc { color: var(--ink-muted); }
+
+@keyframes rise {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* LEDE */
+.lede {
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding-top: 6rem; padding-bottom: 6rem;
+  position: relative;
+}
+.lede p {
+  font-family: var(--serif);
+  font-variation-settings: "opsz" 24, "wght" 400;
+  font-size: clamp(1.25rem, 1.1rem + 0.7vw, 1.55rem);
+  line-height: 1.55;
+  margin: 0;
+  color: var(--ink);
+}
+.lede p::first-letter {
+  font-family: var(--serif);
+  font-variation-settings: "opsz" 72, "wght" 450;
+  font-size: 2em;
+  float: left;
+  line-height: .9;
+  margin: .1em .1em 0 0;
+  color: var(--accent);
+}
+
+/* SCALE STRIP */
+.scale {
+  max-width: var(--measure-wide);
+  margin: 0 auto;
+  padding-top: 4rem; padding-bottom: 6rem;
+  border-top: 1px solid var(--hairline);
+  border-bottom: 1px solid var(--hairline);
+}
+.scale-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1px;
+  background: var(--hairline);
+}
+.scale-item {
+  background: var(--paper);
+  padding: 2rem 1.5rem;
+  text-align: center;
+  display: flex; flex-direction: column; gap: .5rem;
+}
+.scale-num {
+  font-family: var(--serif);
+  font-variation-settings: "opsz" 144, "wght" 350;
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  line-height: 1;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  font-feature-settings: "tnum" 1, "lnum" 1;
+}
+.scale-num .suffix { color: var(--accent); }
+.scale-label {
+  font-family: var(--mono);
+  font-size: .68rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+/* SECTION HEADER */
+.section-h {
+  font-family: var(--mono);
+  font-size: .72rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 3rem;
+  display: flex; align-items: center; gap: 1rem;
+  font-weight: 500;
+}
+.section-h::after { content: ""; flex: 1; height: 1px; background: var(--hairline); }
+
+/* SELECTED WORK */
+.work {
+  max-width: var(--measure-wide);
+  margin: 0 auto;
+  padding-top: 6rem; padding-bottom: 4rem;
+}
+.case {
+  padding: 3rem 0;
+  border-bottom: 1px solid var(--hairline);
+}
+.case:last-of-type { border-bottom: 0; }
+.case-row {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 3.5rem;
+  align-items: start;
+}
+.case-art {
+  position: sticky; top: 6rem;
+  aspect-ratio: 1;
+  display: grid; place-items: center;
+  background: var(--paper-2);
+  border: 1px solid var(--hairline);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.case-art svg { width: 88%; height: 88%; }
+.case-meta {
+  font-family: var(--mono);
+  font-size: .72rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin: 0 0 1rem;
+}
+.case-meta .dot { color: var(--accent); margin: 0 .5em; }
+.case-title {
+  font-family: var(--serif);
+  font-variation-settings: "opsz" 72, "wght" 400;
+  font-size: clamp(1.7rem, 1.3rem + 1.3vw, 2.6rem);
+  line-height: 1.1;
+  letter-spacing: -0.015em;
+  margin: 0 0 1.25rem;
+  color: var(--ink);
+}
+.case-scale {
+  margin: 0 0 1.5rem;
+  padding: .85rem 0;
+  border-top: 1px solid var(--hairline);
+  border-bottom: 1px solid var(--hairline);
+  font-family: var(--mono);
+  font-size: .78rem;
+  letter-spacing: .04em;
+  color: var(--ink-muted);
+  line-height: 1.8;
+  display: flex; flex-wrap: wrap; gap: .25rem 1.1rem;
+}
+.case-scale span { white-space: nowrap; }
+.case-scale strong { color: var(--accent); font-weight: 500; font-family: var(--serif); font-style: normal; font-size: .95rem; font-variation-settings: "opsz" 36, "wght" 500; letter-spacing: -.005em; padding-right: .15em; }
+.case-scale .sep { color: var(--hairline); }
+.case-text {
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--ink-2);
+  margin: 0 0 2rem;
+}
+.case-metrics {
+  list-style: none; padding: 0; margin: 0;
+  display: flex; flex-wrap: wrap; gap: 1rem;
+}
+.case-metrics li {
+  font-family: var(--mono);
+  font-size: .78rem;
+  padding: .5rem .9rem;
+  background: var(--accent-soft);
+  color: var(--accent);
+  border-radius: 2px;
+  letter-spacing: .04em;
+}
+.case-metrics strong { font-weight: 500; }
+
+.case-impact {
+  margin-top: 2.5rem;
+}
+.impact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 1px;
+  background: var(--hairline);
+  border: 1px solid var(--hairline);
+}
+.impact-item {
+  background: var(--paper);
+  padding: 1.6rem 1rem;
+  text-align: center;
+  display: flex; flex-direction: column; gap: .4rem;
+  justify-content: center;
+  min-height: 7rem;
+}
+.impact-num {
+  font-family: var(--serif);
+  font-variation-settings: "opsz" 96, "wght" 380;
+  font-size: clamp(1.6rem, 2.5vw, 2.3rem);
+  line-height: 1;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  font-feature-settings: "tnum" 1, "lnum" 1;
+}
+.impact-num .suffix { color: var(--accent); font-size: .85em; }
+.impact-num .neg { color: var(--accent); }
+.impact-sub {
+  font-family: var(--mono);
+  font-size: .65rem;
+  letter-spacing: .04em;
+  color: var(--accent);
+  margin-top: -.05rem;
+}
+.impact-label {
+  font-family: var(--mono);
+  font-size: .64rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  line-height: 1.4;
+}
+
+@media (max-width: 760px) {
+  .case-row { grid-template-columns: 1fr; gap: 1.5rem; }
+  .case-art { position: static; max-width: 280px; }
+}
+
+/* PULL QUOTE */
+.pullquote {
+  max-width: var(--measure-wide);
+  margin: 6rem auto;
+  padding: 0;
+  text-align: center;
+}
+.pullquote blockquote {
+  font-family: var(--serif);
+  font-variation-settings: "opsz" 144, "wght" 320;
+  font-style: italic;
+  font-size: clamp(1.6rem, 1.2rem + 1.8vw, 2.7rem);
+  line-height: 1.25;
+  margin: 0;
+  color: var(--ink);
+  position: relative;
+  padding: 0 2rem;
+  letter-spacing: -0.01em;
+}
+.pullquote blockquote::before,
+.pullquote blockquote::after {
+  font-family: var(--serif);
+  font-style: normal;
+  color: var(--accent);
+  font-size: 2.5em;
+  line-height: 1;
+  position: absolute;
+  opacity: .4;
+}
+.pullquote blockquote::before { content: "\201C"; left: 0; top: -.1em; }
+.pullquote blockquote::after { content: "\201D"; right: 0; bottom: -.4em; }
+.pullquote cite {
+  display: block;
+  margin-top: 1.5rem;
+  font-family: var(--mono);
+  font-style: normal;
+  font-size: .75rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+/* PRINCIPLES */
+.principles {
+  max-width: var(--measure-wide);
+  margin: 0 auto;
+  padding-top: 4rem; padding-bottom: 4rem;
+}
+.principle-list {
+  list-style: none; padding: 0; margin: 0;
+  display: grid; gap: 0;
+}
+.principle-list li {
+  display: grid;
+  grid-template-columns: 5rem 1fr;
+  gap: 2rem;
+  padding: 2rem 0;
+  border-bottom: 1px solid var(--hairline);
+  align-items: baseline;
+  transition: padding-left var(--t-fast);
+}
+.principle-list li:hover { padding-left: 1rem; }
+.principle-list li:last-child { border-bottom: 0; }
+.numeral {
+  font-family: var(--serif);
+  font-variation-settings: "opsz" 144, "wght" 300;
+  font-style: italic;
+  font-size: 2.4rem;
+  line-height: 1;
+  color: var(--accent);
+}
+.principle-list h3 {
+  font-family: var(--serif);
+  font-variation-settings: "opsz" 36, "wght" 450;
+  font-size: clamp(1.3rem, 1.1rem + 0.6vw, 1.7rem);
+  margin: 0 0 .6rem;
+  letter-spacing: -0.01em;
+}
+.principle-list p {
+  margin: 0;
+  color: var(--ink-2);
+  font-size: 1.02rem;
+  max-width: 38rem;
+}
+
+@media (max-width: 600px) {
+  .principle-list li { grid-template-columns: 3rem 1fr; gap: 1rem; }
+  .numeral { font-size: 1.8rem; }
+}
+
+/* EXPERIENCE TIMELINE */
+.experience {
+  max-width: var(--measure-wide);
+  margin: 0 auto;
+  padding-top: 4rem; padding-bottom: 4rem;
+}
+.timeline {
+  list-style: none; margin: 0; padding: 0;
+  position: relative;
+}
+.timeline::before {
+  content: ""; position: absolute;
+  left: 12rem; top: 0; bottom: 0; width: 1px;
+  background: var(--hairline);
+}
+.timeline li {
+  display: grid;
+  grid-template-columns: 11rem 2rem 1fr;
+  gap: 0;
+  padding: 1.5rem 0 2.5rem;
+  position: relative;
+}
+.timeline .when {
+  font-family: var(--mono);
+  font-size: .78rem;
+  letter-spacing: .08em;
+  color: var(--ink-muted);
+  padding-top: .35rem;
+  text-align: right;
+  padding-right: 1rem;
+}
+.timeline .marker {
+  display: grid; place-items: center;
+  position: relative;
+}
+.timeline .marker::before {
+  content: ""; width: 9px; height: 9px; border-radius: 50%;
+  background: var(--paper);
+  border: 1.5px solid var(--accent);
+  margin-top: .65rem;
+  z-index: 1;
+}
+.timeline li.current .marker::before {
+  background: var(--accent);
+  box-shadow: 0 0 0 4px var(--accent-soft);
+}
+.timeline-body { padding-left: .5rem; }
+.timeline-body h3 {
+  font-family: var(--serif);
+  font-variation-settings: "opsz" 36, "wght" 450;
+  font-size: 1.35rem;
+  margin: 0 0 .15rem;
+  letter-spacing: -0.005em;
+}
+.timeline-body .where {
+  font-family: var(--mono);
+  font-size: .78rem;
+  letter-spacing: .04em;
+  color: var(--ink-muted);
+  margin: 0 0 .75rem;
+}
+.timeline-body p {
+  margin: 0;
+  color: var(--ink-2);
+  font-size: .98rem;
+  max-width: 36rem;
+}
+
+@media (max-width: 700px) {
+  .timeline::before { left: 8px; }
+  .timeline li { grid-template-columns: 24px 1fr; }
+  .timeline .when { grid-column: 1 / -1; text-align: left; padding: 0 0 .5rem; }
+  .timeline .marker::before { margin-top: .35rem; }
+}
+
+/* SKILLS */
+.skills {
+  max-width: var(--measure-wide);
+  margin: 0 auto;
+  padding-top: 4rem; padding-bottom: 4rem;
+}
+.skills-list {
+  margin: 0; padding: 0;
+  border-top: 1px solid var(--hairline);
+}
+.skills-list > div {
+  display: grid;
+  grid-template-columns: minmax(180px, 1fr) 3fr;
+  gap: 2rem;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--hairline);
+  align-items: baseline;
+}
+.skills-list dt {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: .72rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 500;
+}
+.skills-list dd {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: .9rem;
+  line-height: 1.7;
+  color: var(--ink-2);
+}
+@media (max-width: 600px) {
+  .skills-list > div {
+    grid-template-columns: 1fr;
+    gap: .35rem;
+    padding: 1rem 0;
+  }
+}
+
+/* EDUCATION */
+.education {
+  max-width: var(--measure-wide);
+  margin: 0 auto;
+  padding-top: 4rem; padding-bottom: 4rem;
+}
+.edu {
+  margin: 0;
+  display: grid;
+  gap: 1.5rem;
+}
+.edu > div {
+  padding: 1.25rem 0;
+  border-top: 1px solid var(--hairline);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1rem;
+  align-items: baseline;
+}
+.edu dt {
+  font-family: var(--serif);
+  font-variation-settings: "opsz" 36, "wght" 450;
+  font-size: 1.2rem;
+  margin: 0;
+}
+.edu dd {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: .8rem;
+  letter-spacing: .04em;
+  color: var(--ink-muted);
+  text-align: right;
+}
+
+/* COLOPHON */
+.colophon {
+  max-width: var(--measure-wide);
+  margin: 0 auto;
+  padding-top: 8rem; padding-bottom: 4rem;
+  border-top: 1px solid var(--hairline);
+  margin-top: 6rem;
+  text-align: center;
+}
+.lets-talk {
+  font-family: var(--serif);
+  font-variation-settings: "opsz" 72, "wght" 400;
+  font-style: italic;
+  font-size: clamp(1.5rem, 1.2rem + 1vw, 2.2rem);
+  margin: 0 0 1rem;
+  letter-spacing: -0.01em;
+}
+.reach {
+  font-family: var(--mono);
+  font-size: .95rem;
+  margin: 0 0 4rem;
+}
+.reach a { border-bottom-color: var(--accent); }
+.colo-meta {
+  font-family: var(--mono);
+  font-size: .72rem;
+  letter-spacing: .08em;
+  color: var(--ink-muted);
+  margin: 0;
+}
+.colo-meta a { color: var(--ink-muted); border-bottom-color: var(--hairline); }
+
+/* SCROLL REVEAL */
+.reveal {
+  opacity: 0; transform: translateY(20px);
+  transition: opacity .9s var(--t-slow), transform .9s var(--t-slow);
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* CASE ART SVGS — themed via CSS so var() resolves correctly */
+.case-art .accent-fill { fill: var(--accent); }
+.case-art .accent-stroke { stroke: var(--accent); fill: none; }
+.case-art .ink-fill { fill: var(--ink-muted); }
+.case-art .grad-stop-0 { stop-color: var(--accent); stop-opacity: .5; }
+.case-art .grad-stop-1 { stop-color: var(--accent); stop-opacity: 0; }
+.case-art .label-text { fill: var(--ink-muted); font-family: var(--mono); font-size: 6px; opacity: .7; }
+
+/* PRINT */
+@media print {
+  .topnav, .masthead-canvas, .pullquote, .colo-meta { display: none; }
+  body { background: white; color: black; }
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<nav class="topnav" id="topnav">
+  <a href="#" class="initials" aria-label="Top">D<em>P</em></a>
+  <span class="status"><span class="pulse" aria-hidden="true"></span> Currently at Oracle</span>
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Toggle theme">◐</button>
+</nav>
+
+<main id="main">
+
+<header class="masthead">
+  <canvas class="masthead-canvas" id="bgCanvas" aria-hidden="true"></canvas>
+  <div class="masthead-inner">
+    <p class="eyebrow">Senior Backend Software Engineer · Nashville, TN, USA · Available</p>
+    <h1 class="name">Deepak <em>Pagaro</em></h1>
+    <p class="tagline">Senior backend engineer.<span class="pipe">·</span>Calm systems at chaotic scale.</p>
+    <ul class="contacts">
+      <li><a href="mailto:deepakpagaro1@gmail.com">Email</a></li>
+      <li><a href="https://www.linkedin.com/in/deepakpagaro" target="_blank" rel="noopener">LinkedIn</a></li>
+      <li><a href="https://github.com/deepakpagaro" target="_blank" rel="noopener">GitHub</a></li>
+      <li><a href="resume.pdf" target="_blank" rel="noopener">Résumé</a></li>
+      <li class="loc">Nashville, TN, USA</li>
+    </ul>
+  </div>
+</header>
+
+<section class="lede reveal" aria-label="Introduction">
+  <p>Deepak Pagaro architects, develops, and ships backend platforms — end to end. He starts with the metric the business cares about — late payments, batch losses, time to repair — and works backward to the architecture. At Oracle, he built the distributed cloud-native system that monitors and self-recovers fifteen thousand GPUs across two AI data centers. Earlier, at Starbucks, he built the industrial-IoT alerting platform that protects coffee from port to cup — millions of sensors, thousands of stores, billions of events. Six years writing the unglamorous, high-stakes systems that quietly carry billions of dollars and millions of customers — and he prefers it that way.</p>
+</section>
+
+<section class="work" aria-label="Selected Work">
+  <h2 class="section-h">Selected Work</h2>
+
+  <article class="case reveal">
+    <div class="case-row">
+    <aside class="case-art" aria-hidden="true">
+      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="g1" cx=".5" cy=".5" r=".5">
+            <stop class="grad-stop-0" offset="0"/>
+            <stop class="grad-stop-1" offset="1"/>
+          </radialGradient>
+        </defs>
+        <circle cx="100" cy="100" r="80" fill="url(#g1)"/>
+        <g class="accent-stroke" stroke-width=".5" stroke-opacity=".35">
+          <path d="M100 100 L40 50"/>
+          <path d="M100 100 L160 60"/>
+          <path d="M100 100 L170 110"/>
+          <path d="M100 100 L150 170"/>
+          <path d="M100 100 L60 160"/>
+          <path d="M100 100 L30 110"/>
+          <path d="M100 100 L80 30"/>
+          <path d="M100 100 L130 30"/>
+          <path d="M40 50 L80 30"/>
+          <path d="M170 110 L160 60"/>
+          <path d="M150 170 L60 160"/>
+          <path d="M30 110 L60 160"/>
+        </g>
+        <g class="ink-fill">
+          <circle cx="40" cy="50" r="2"/>
+          <circle cx="160" cy="60" r="2"/>
+          <circle cx="170" cy="110" r="2"/>
+          <circle cx="150" cy="170" r="2"/>
+          <circle cx="60" cy="160" r="2"/>
+          <circle cx="30" cy="110" r="2"/>
+          <circle cx="80" cy="30" r="2"/>
+          <circle cx="130" cy="30" r="2"/>
+          <circle cx="50" cy="90" r="1.4" opacity=".5"/>
+          <circle cx="140" cy="40" r="1.4" opacity=".5"/>
+          <circle cx="180" cy="80" r="1.4" opacity=".5"/>
+          <circle cx="120" cy="180" r="1.4" opacity=".5"/>
+          <circle cx="20" cy="80" r="1.4" opacity=".5"/>
+          <circle cx="90" cy="180" r="1.4" opacity=".5"/>
+          <circle cx="170" cy="160" r="1.4" opacity=".5"/>
+          <circle cx="40" cy="170" r="1.4" opacity=".5"/>
+        </g>
+        <circle class="accent-fill" cx="100" cy="100" r="6">
+          <animate attributeName="r" values="6;8;6" dur="3s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" values="1;.6;1" dur="3s" repeatCount="indefinite"/>
+        </circle>
+        <circle class="accent-stroke" cx="100" cy="100" r="14" stroke-width=".5" opacity=".4">
+          <animate attributeName="r" values="14;28;14" dur="3s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" values=".4;0;.4" dur="3s" repeatCount="indefinite"/>
+        </circle>
+      </svg>
+    </aside>
+    <div class="case-body">
+      <p class="case-meta">Oracle<span class="dot">·</span>2025—Present<span class="dot">·</span>Senior Member of Technical Staff</p>
+      <h3 class="case-title">Forty thousand devices that heal themselves.</h3>
+      <p class="case-text">Two AI data-center buildings in Abilene, TX, USA. Forty thousand monitored devices — fifteen thousand of them NVIDIA GB200 GPUs, the rest a mix of AMD servers, BMCs, NVLink switches, network gear, PDUs, and facility sensors. Twenty-four megawatts of IT load. Twenty million dollars a year in electricity. Frontier LLM models train on this fleet. The backend platform that monitors and recovers all of it is the one I designed, architected, built, tested, and delivered — a distributed cloud-native system ingesting thirty-five billion telemetry samples a day.</p>
+      <p class="case-text">The platform doesn't just watch. It acts. AI-driven recovery loops stagger GPUs through thermal pressure, restart host agents that have gone silent, and coordinate response when cooling drifts or temperatures climb. Failures that would once have woken an engineer at three in the morning resolve themselves — quietly, before the page is sent.</p>
+      <p class="case-text">The work crossed organizational boundaries as much as it crossed code. Hardware, physical data-center, facility operations, software platform — every alert path and every recovery action was negotiated as much as it was engineered. Four months from kickoff to running production. End-to-end ownership: design, architecture, build, test, delivery.</p>
+    </div>
+    </div>
+    <div class="case-impact">
+      <div class="impact-grid">
+        <div class="impact-item">
+          <span class="impact-num">40,000<span class="suffix">+</span></span>
+          <span class="impact-sub">incl. 15,000+ GB200 GPUs</span>
+          <span class="impact-label">Devices monitored</span>
+        </div>
+        <div class="impact-item">
+          <span class="impact-num">35<span class="suffix">B</span></span>
+          <span class="impact-label">Samples / day</span>
+        </div>
+        <div class="impact-item">
+          <span class="impact-num"><span class="neg">−</span>15<span class="suffix">%</span></span>
+          <span class="impact-label">MTTR</span>
+        </div>
+        <div class="impact-item">
+          <span class="impact-num"><span class="neg">−</span>10<span class="suffix">%</span></span>
+          <span class="impact-label">Power & cooling</span>
+        </div>
+        <div class="impact-item">
+          <span class="impact-num">$2M<span class="suffix">/yr</span></span>
+          <span class="impact-label">Saved</span>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <article class="case reveal">
+    <div class="case-row">
+    <aside class="case-art" aria-hidden="true">
+      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <g class="accent-stroke" stroke-opacity=".4" stroke-width=".5">
+          <circle cx="100" cy="100" r="30"/>
+          <circle cx="100" cy="100" r="55"/>
+          <circle cx="100" cy="100" r="78"/>
+        </g>
+        <g class="ink-fill">
+          <circle cx="100" cy="70" r="1.5"/>
+          <circle cx="125" cy="82" r="1.5"/>
+          <circle cx="130" cy="100" r="1.5"/>
+          <circle cx="125" cy="118" r="1.5"/>
+          <circle cx="100" cy="130" r="1.5"/>
+          <circle cx="75" cy="118" r="1.5"/>
+          <circle cx="70" cy="100" r="1.5"/>
+          <circle cx="75" cy="82" r="1.5"/>
+
+          <circle cx="100" cy="45" r="1.5"/>
+          <circle cx="138" cy="55" r="1.5"/>
+          <circle cx="155" cy="100" r="1.5"/>
+          <circle cx="138" cy="145" r="1.5"/>
+          <circle cx="100" cy="155" r="1.5"/>
+          <circle cx="62" cy="145" r="1.5"/>
+          <circle cx="45" cy="100" r="1.5"/>
+          <circle cx="62" cy="55" r="1.5"/>
+          <circle cx="118" cy="48" r="1.2" opacity=".7"/>
+          <circle cx="148" cy="78" r="1.2" opacity=".7"/>
+          <circle cx="148" cy="122" r="1.2" opacity=".7"/>
+          <circle cx="118" cy="152" r="1.2" opacity=".7"/>
+          <circle cx="82" cy="152" r="1.2" opacity=".7"/>
+          <circle cx="52" cy="122" r="1.2" opacity=".7"/>
+          <circle cx="52" cy="78" r="1.2" opacity=".7"/>
+          <circle cx="82" cy="48" r="1.2" opacity=".7"/>
+
+          <circle cx="100" cy="22" r="1.2" opacity=".5"/>
+          <circle cx="155" cy="44" r="1.2" opacity=".5"/>
+          <circle cx="178" cy="100" r="1.2" opacity=".5"/>
+          <circle cx="155" cy="156" r="1.2" opacity=".5"/>
+          <circle cx="100" cy="178" r="1.2" opacity=".5"/>
+          <circle cx="45" cy="156" r="1.2" opacity=".5"/>
+          <circle cx="22" cy="100" r="1.2" opacity=".5"/>
+          <circle cx="45" cy="44" r="1.2" opacity=".5"/>
+          <circle cx="135" cy="28" r="1" opacity=".4"/>
+          <circle cx="172" cy="65" r="1" opacity=".4"/>
+          <circle cx="172" cy="135" r="1" opacity=".4"/>
+          <circle cx="135" cy="172" r="1" opacity=".4"/>
+          <circle cx="65" cy="172" r="1" opacity=".4"/>
+          <circle cx="28" cy="135" r="1" opacity=".4"/>
+          <circle cx="28" cy="65" r="1" opacity=".4"/>
+          <circle cx="65" cy="28" r="1" opacity=".4"/>
+        </g>
+        <circle class="accent-fill" cx="100" cy="100" r="5"/>
+        <circle class="accent-stroke" cx="100" cy="100" r="10" stroke-width=".8" opacity=".6">
+          <animate attributeName="r" values="10;90;10" dur="4s" repeatCount="indefinite"/>
+          <animate attributeName="opacity" values=".6;0;.6" dur="4s" repeatCount="indefinite"/>
+        </circle>
+      </svg>
+    </aside>
+    <div class="case-body">
+      <p class="case-meta">Starbucks<span class="dot">·</span>2021—2025<span class="dot">·</span>Software Engineer</p>
+      <h3 class="case-title">The platform that keeps the coffee from burning.</h3>
+      <p class="case-text">Most people think of Starbucks as ten thousand storefronts. The harder truth runs upstream — green beans on container ships, in customs, on roasters at four hundred and fifty degrees, in distribution centers waiting to move. A late alert anywhere along that chain can mean a quarter-million-dollar batch loss, a half-million-dollar damaged roaster, or a production halt that cascades to every store in North America. I designed and built the industrial-IoT alerting platform that protects all of it.</p>
+      <p class="case-text"><em>Bean burn prevention.</em> Real-time roaster temperature thresholds, batch anomaly detection on color and aroma sensors, auto-shutdown triggers when roast profiles deviate, quality-control flags routed to roasting technicians. Every prevented incident saves roughly seven hundred and fifty thousand dollars in batch losses and roaster damage.</p>
+      <p class="case-text"><em>Supply-chain alerting.</em> Port delays and customs holds on green-bean shipments. Temperature and moisture excursions inside shipping containers. Truck breakdowns rerouted in flight. Quality issues at origin farms, surfaced before crops cross the ocean. Distribution-center backlogs flagged before they became outages.</p>
+      <p class="case-text">Underneath: nine thousand events per second sustained, forty thousand at peak, ingesting from millions of sensors across the value chain. On top: RESTful and GraphQL surfaces for ten thousand store managers and a ticketing layer for seventy thousand employees that cut support calls by twenty percent. End to end — design, architecture, build, test, delivery, and the design reviews that taught the next person to do it.</p>
+    </div>
+    </div>
+    <div class="case-impact">
+      <div class="impact-grid">
+        <div class="impact-item">
+          <span class="impact-num">10,000<span class="suffix">+</span></span>
+          <span class="impact-label">Stores</span>
+        </div>
+        <div class="impact-item">
+          <span class="impact-num">70,000<span class="suffix">+</span></span>
+          <span class="impact-label">Employees</span>
+        </div>
+        <div class="impact-item">
+          <span class="impact-num">9K&ndash;40K<span class="suffix">/sec</span></span>
+          <span class="impact-sub">from millions of sensors</span>
+          <span class="impact-label">Events ingested</span>
+        </div>
+        <div class="impact-item">
+          <span class="impact-num">~$750K</span>
+          <span class="impact-label">Per save</span>
+        </div>
+        <div class="impact-item">
+          <span class="impact-num"><span class="neg">−</span>20<span class="suffix">%</span></span>
+          <span class="impact-label">Support calls</span>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <article class="case reveal">
+    <div class="case-row">
+    <aside class="case-art" aria-hidden="true">
+      <svg viewBox="0 0 240 200" xmlns="http://www.w3.org/2000/svg">
+        <g class="accent-stroke" stroke-opacity=".5" stroke-width=".7">
+          <path d="M40 100 C 80 100, 100 40, 150 40"/>
+          <path d="M40 100 C 80 100, 100 70, 150 70"/>
+          <path d="M40 100 C 100 100, 120 100, 150 100"/>
+          <path d="M40 100 C 80 100, 100 130, 150 130"/>
+          <path d="M40 100 C 80 100, 100 160, 150 160"/>
+        </g>
+        <circle class="accent-fill" cx="40" cy="100" r="6"/>
+        <circle class="accent-stroke" cx="40" cy="100" r="12" stroke-width=".6" opacity=".4"/>
+        <g class="ink-fill">
+          <circle cx="150" cy="40" r="3.5"/>
+          <circle cx="150" cy="70" r="3.5"/>
+          <circle cx="150" cy="100" r="3.5"/>
+          <circle cx="150" cy="130" r="3.5"/>
+          <circle cx="150" cy="160" r="3.5"/>
+        </g>
+        <g class="label-text">
+          <text x="160" y="42">EQUIFAX</text>
+          <text x="160" y="72">TRANSUNION</text>
+          <text x="160" y="102">LENDINGTREE</text>
+          <text x="160" y="132">CREDIT KARMA</text>
+          <text x="160" y="162">AUTOPAY</text>
+        </g>
+        <g>
+          <circle class="accent-fill" r="2">
+            <animateMotion dur="3s" repeatCount="indefinite" path="M40 100 C 80 100, 100 40, 150 40"/>
+          </circle>
+          <circle class="accent-fill" r="2">
+            <animateMotion dur="3.7s" repeatCount="indefinite" path="M40 100 C 100 100, 120 100, 150 100"/>
+          </circle>
+          <circle class="accent-fill" r="2">
+            <animateMotion dur="4.3s" repeatCount="indefinite" path="M40 100 C 80 100, 100 160, 150 160"/>
+          </circle>
+        </g>
+      </svg>
+    </aside>
+    <div class="case-body">
+      <p class="case-meta">Mariner Finance<span class="dot">·</span>2019—2021<span class="dot">·</span>Software Engineer</p>
+      <h3 class="case-title">Where credit decisions begin.</h3>
+      <p class="case-text">At Mariner Finance, I built two platforms. The first ran inside the company — the system the online support staff used every day to process applications, pull credit, and approve loans. The second sat on the public web — the online lending platform where consumers register, upload documents, and apply directly. The APIs I shipped made half a million people able to do that themselves.</p>
+      <p class="case-text">Every approval ran on integrations I designed and built. Three credit bureaus — Equifax, TransUnion, Experian — for the credit reports that generate loan offers. Two affiliate channels — LendingTree and Credit Karma — that accounted for forty percent of total loan volume.</p>
+      <p class="case-text">I made the manual work disappear where I could. ID verification used to take three minutes per application; I automated it, and the support staff got those three minutes back every time. Autopay quietly cut late payments by ten percent. Cron jobs surfaced campaign performance back to the marketing team in language they could act on. End to end: design, build, test, ship — for systems that touched real money and could not be wrong.</p>
+    </div>
+    </div>
+    <div class="case-impact">
+      <div class="impact-grid">
+        <div class="impact-item">
+          <span class="impact-num">500,000<span class="suffix">+</span></span>
+          <span class="impact-label">Self-serve applications</span>
+        </div>
+        <div class="impact-item">
+          <span class="impact-num">40<span class="suffix">%</span></span>
+          <span class="impact-sub">via affiliate channels</span>
+          <span class="impact-label">Of loan volume</span>
+        </div>
+        <div class="impact-item">
+          <span class="impact-num">3 min<span class="suffix">/app</span></span>
+          <span class="impact-sub">via ID verification automation</span>
+          <span class="impact-label">Staff time saved</span>
+        </div>
+        <div class="impact-item">
+          <span class="impact-num"><span class="neg">−</span>10<span class="suffix">%</span></span>
+          <span class="impact-label">Late payments</span>
+        </div>
+      </div>
+    </div>
+  </article>
+</section>
+
+<aside class="pullquote reveal">
+  <blockquote>
+    Simplicity is prerequisite for reliability.
+    <cite>Edsger Dijkstra · 1975</cite>
+  </blockquote>
+</aside>
+
+<section class="principles" aria-label="How I Work">
+  <h2 class="section-h">How I Work</h2>
+  <ol class="principle-list">
+    <li class="reveal">
+      <span class="numeral">I</span>
+      <div>
+        <h3>Day-one delivery.</h3>
+        <p>Plans without ship dates are wishes. Cost reductions on day one beat roadmaps that promise them in the third quarter. The work is to find the smallest version of the right thing — and ship it before the meeting that would have debated it.</p>
+      </div>
+    </li>
+    <li class="reveal">
+      <span class="numeral">II</span>
+      <div>
+        <h3>Outcomes over output.</h3>
+        <p>The unit of work is the metric that moved, not the ticket that closed. Every shipped thing should be answerable to a number — uptime, latency, dollars, hours. If it cannot be, it probably should not be shipped.</p>
+      </div>
+    </li>
+    <li class="reveal">
+      <span class="numeral">III</span>
+      <div>
+        <h3>Automate the second time.</h3>
+        <p>The first manual run is reconnaissance. The second is a smell. By the third, the script should already exist. CI/CD, Terraform, and one good cron job have replaced more meetings than any process change ever has.</p>
+      </div>
+    </li>
+    <li class="reveal">
+      <span class="numeral">IV</span>
+      <div>
+        <h3>Design for audit when it touches money.</h3>
+        <p>Traceability is not paperwork. It is the difference between a calm Monday and a regulator's letter. Every event with a financial consequence — every credit pull, every loan offer, every notification — should leave a record that survives the engineer who wrote it.</p>
+      </div>
+    </li>
+    <li class="reveal">
+      <span class="numeral">V</span>
+      <div>
+        <h3>Compose intelligence, don't replace it.</h3>
+        <p>Agents are good at orchestration, not judgment. The leverage is in giving them grounded context and clear scopes — and trusting humans for the calls that matter. The best AI feature is the one that gives an engineer back an afternoon.</p>
+      </div>
+    </li>
+    <li class="reveal">
+      <span class="numeral">VI</span>
+      <div>
+        <h3>See the whole picture.</h3>
+        <p>Whatever you build is part of getting something to a customer and a result to the business. Engineers who only focus on their component can make it better while making the whole worse. The most valuable work usually happens where one component feeds the next — like a credit report into a loan decision — not inside any single component.</p>
+      </div>
+    </li>
+  </ol>
+</section>
+
+<aside class="pullquote reveal">
+  <blockquote>
+    We shape our tools and thereafter our tools shape us.
+    <cite>Marshall McLuhan · 1964</cite>
+  </blockquote>
+</aside>
+
+<section class="experience" aria-label="Experience">
+  <h2 class="section-h">Experience</h2>
+  <ol class="timeline">
+    <li class="current">
+      <span class="when">2025 — Present</span>
+      <span class="marker" aria-hidden="true"></span>
+      <div class="timeline-body">
+        <h3>Senior Member of Technical Staff</h3>
+        <p class="where">Oracle · Nashville, TN, USA</p>
+        <p>Designed and built a distributed cloud-native backend for telemetry, alerting, and AI-driven recovery across 15,000 GB200 GPUs and 40K+ devices in two AI data centers. Cross-functional ownership across hardware, facility, and platform teams.</p>
+      </div>
+    </li>
+    <li>
+      <span class="when">2021 — 2025</span>
+      <span class="marker" aria-hidden="true"></span>
+      <div class="timeline-body">
+        <h3>Software Engineer</h3>
+        <p class="where">Starbucks · Baltimore, MD, USA</p>
+        <p>Designed and built the industrial-IoT alerting platform protecting the bean value chain — millions of sensors, 9K–40K events/sec — extending into RESTful/GraphQL surfaces for 10,000+ stores and ticketing for 70,000+ employees. Led design and code reviews.</p>
+      </div>
+    </li>
+    <li>
+      <span class="when">2019 — 2021</span>
+      <span class="marker" aria-hidden="true"></span>
+      <div class="timeline-body">
+        <h3>Software Engineer</h3>
+        <p class="where">Mariner Finance · Baltimore, MD, USA</p>
+        <p>Built two platforms — the internal system the online support staff used to process applications, and the customer-facing online lending platform that enabled 500,000+ customers to apply themselves. Three credit bureaus (Equifax, TransUnion, Experian) and two affiliate channels (LendingTree, Credit Karma) driving 40% of loan volume. Automated ID verification, saving three minutes per application.</p>
+      </div>
+    </li>
+  </ol>
+</section>
+
+<section class="skills" aria-label="Tools of the Trade">
+  <h2 class="section-h">Tools of the Trade</h2>
+  <dl class="skills-list">
+    <div>
+      <dt>Programming</dt>
+      <dd>TypeScript · Node.js · Express.js · Java · Python · GraphQL</dd>
+    </div>
+    <div>
+      <dt>DevOps</dt>
+      <dd>Terraform · Azure DevOps · Docker · Gradle</dd>
+    </div>
+    <div>
+      <dt>Cloud</dt>
+      <dd>Microsoft Azure · AWS · OCI</dd>
+    </div>
+    <div>
+      <dt>Databases</dt>
+      <dd>CosmosDB · MongoDB · Redis · PostgreSQL</dd>
+    </div>
+    <div>
+      <dt>Testing</dt>
+      <dd>Jest · Mocha · Grafana k6 · JUnit</dd>
+    </div>
+    <div>
+      <dt>Observability</dt>
+      <dd>Azure App Insights · New Relic · Splunk</dd>
+    </div>
+  </dl>
+</section>
+
+<section class="education" aria-label="Education">
+  <h2 class="section-h">Education</h2>
+  <dl class="edu">
+    <div>
+      <dt>Master of Science, Computer Science</dt>
+      <dd>George Mason University · Fairfax, VA, USA · 2017—2019</dd>
+    </div>
+    <div>
+      <dt>Bachelor of Engineering, Computer</dt>
+      <dd>Savitribai Phule Pune University · Pune, MH, India · 2012—2016</dd>
+    </div>
+  </dl>
+</section>
+
+<aside class="pullquote reveal">
+  <blockquote>
+    What gets measured gets managed.
+    <cite>Peter Drucker</cite>
+  </blockquote>
+</aside>
+
+<footer class="colophon">
+  <p class="lets-talk">Open to senior IC, tech-lead, and founding-engineer roles.</p>
+  <p class="reach"><a href="mailto:deepakpagaro1@gmail.com">deepakpagaro1@gmail.com</a></p>
+  <p class="colo-meta">Hand-coded in Nashville, TN, USA. No analytics, no tracking.</p>
+</footer>
+
+</main>
+
+<script>
+(() => {
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const stored = localStorage.getItem('theme');
+  const sysDark = matchMedia('(prefers-color-scheme: dark)').matches;
+  document.documentElement.dataset.theme = stored || (sysDark ? 'dark' : 'light');
+  document.getElementById('themeToggle').addEventListener('click', () => {
+    const cur = document.documentElement.dataset.theme;
+    const next = cur === 'dark' ? 'light' : 'dark';
+    document.documentElement.dataset.theme = next;
+    localStorage.setItem('theme', next);
+  });
+
+  const nav = document.getElementById('topnav');
+  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 24);
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  const canvas = document.getElementById('bgCanvas');
+  if (canvas && !reduce) {
+    const ctx = canvas.getContext('2d');
+    let w, h, dpr, nodes, mouse = { x: -9999, y: -9999 };
+    const NODES = 64;
+    const LINK_DIST = 140;
+
+    const resize = () => {
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const r = canvas.getBoundingClientRect();
+      w = r.width; h = r.height;
+      canvas.width = w * dpr; canvas.height = h * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    };
+    const seed = () => {
+      nodes = Array.from({ length: NODES }, () => ({
+        x: Math.random() * w,
+        y: Math.random() * h,
+        vx: (Math.random() - 0.5) * 0.18,
+        vy: (Math.random() - 0.5) * 0.18,
+        r: Math.random() * 1.2 + 0.6,
+      }));
+    };
+    const tick = () => {
+      const cs = getComputedStyle(document.documentElement);
+      const accent = cs.getPropertyValue('--accent').trim() || '#4A5D3E';
+      const ink = cs.getPropertyValue('--ink-muted').trim() || '#6B6862';
+      ctx.clearRect(0, 0, w, h);
+      for (const n of nodes) {
+        n.x += n.vx; n.y += n.vy;
+        if (n.x < 0 || n.x > w) n.vx *= -1;
+        if (n.y < 0 || n.y > h) n.vy *= -1;
+        const dx = n.x - mouse.x, dy = n.y - mouse.y;
+        const d2 = dx * dx + dy * dy;
+        if (d2 < 14400) {
+          const f = (1 - Math.sqrt(d2) / 120) * 0.6;
+          n.x += dx / Math.sqrt(d2) * f;
+          n.y += dy / Math.sqrt(d2) * f;
+        }
+      }
+      ctx.lineWidth = 0.5;
+      for (let i = 0; i < nodes.length; i++) {
+        for (let j = i + 1; j < nodes.length; j++) {
+          const a = nodes[i], b = nodes[j];
+          const dx = a.x - b.x, dy = a.y - b.y;
+          const d = Math.sqrt(dx * dx + dy * dy);
+          if (d < LINK_DIST) {
+            const o = (1 - d / LINK_DIST) * 0.35;
+            ctx.strokeStyle = accent + Math.floor(o * 255).toString(16).padStart(2, '0');
+            ctx.beginPath();
+            ctx.moveTo(a.x, a.y);
+            ctx.lineTo(b.x, b.y);
+            ctx.stroke();
+          }
+        }
+      }
+      ctx.fillStyle = ink;
+      for (const n of nodes) {
+        ctx.beginPath();
+        ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+        ctx.fill();
+      }
+      requestAnimationFrame(tick);
+    };
+    resize(); seed(); tick();
+    window.addEventListener('resize', () => { resize(); seed(); });
+    canvas.addEventListener('mousemove', (e) => {
+      const r = canvas.getBoundingClientRect();
+      mouse.x = e.clientX - r.left;
+      mouse.y = e.clientY - r.top;
+    });
+    canvas.addEventListener('mouseleave', () => { mouse.x = -9999; mouse.y = -9999; });
+  }
+})();
+</script>
+</body>
+</html>
